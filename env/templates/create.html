@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+
+{% endblock %}
+{% block content %}
+
+<!--Header-->
+  <h1>Create CV</h1>
+<!--#Paragraph-->
+<p>Lets see </p>
+
+<!--#Form-->
+  <form action="{{ url_for('create_cv') }}" method="POST">
+    <fieldset class="form-group">
+        <h3>Give this form as much information as possible and we will do the rest.</h3>
+      <dir class="form-group">
+         {{form.name.label(class="form-control-label")}} <br>
+         {{form.name(class="form-control form-control-lg", size=30)}}
+      </dir>
+<!--      <dir class="form-group">-->
+<!--         {{form.last_name.label(class="form-control-label")}} <br>-->
+<!--         {{form.last_name(class="form-control form-control-lg", size=30)}}-->
+<!--      </dir>-->
+<!--        <dir class="form-group">-->
+<!--         {{form.nationality.label(class="form-control-label")}} <br>-->
+<!--         {{form.nationality(class="form-control form-control-lg", size=30)}}-->
+<!--      </dir>-->
+<!--       <dir class="form-group">-->
+<!--         {{form.street.label(class="form-control-label")}} <br>-->
+<!--         {{form.street(class="form-control form-control-lg", size=30)}}-->
+<!--      </dir>-->
+<!--       <dir class="form-group">-->
+<!--         {{form.suburb.label(class="form-control-label")}} <br>-->
+<!--         {{form.suburb(class="form-control form-control-lg", size=30)}}-->
+<!--      </dir>-->
+<!--       <dir class="form-group">-->
+<!--         {{form.city.label(class="form-control-label")}} <br>-->
+<!--         {{form.city(class="form-control form-control-lg", size=30)}}-->
+<!--      </dir>-->
+<!--       <dir class="form-group">-->
+<!--         {{form.province.label(class="form-control-label")}} <br>-->
+<!--         {{form.province(class="form-control form-control-lg", size=30)}}-->
+<!--      </dir>-->
+<!--       <dir class="form-group">-->
+<!--         {{form.email_address.label(class="form-control-label")}} <br>-->
+<!--         {{form.email_address(class="form-control form-control-lg", size=30)}}-->
+<!--      </dir>-->
+<!--       <dir class="form-group">-->
+<!--         {{form.cell_num.label(class="form-control-label")}} <br>-->
+<!--         {{form.cell_num(class="form-control form-control-lg", size=30)}}-->
+<!--      </dir>-->
+<!--       <dir class="form-group">-->
+<!--         {{form.email_address.label(class="form-control-label")}} <br>-->
+<!--         {{form.email_address(class="form-control form-control-lg", size=30)}}-->
+<!--      </dir>-->
+<!--       <dir class="form-group">-->
+<!--         {{form.drivers_license.label(class="form-control-label")}} <br>-->
+<!--         {{form.drivers_license(class="form-control form-control-lg", size=30)}}-->
+<!--      </dir>-->
+<!--        <div class="form-group">-->
+    {{ form.submit}}
+</div>
+  <div class="container" align="left">
+		<a href="/return-files/" target="blank"><button class='btn btn-default'>Download!</button></a>
+   </div>
+    </fieldset>
+
+
+
+  </form>
+{% endblock %}
