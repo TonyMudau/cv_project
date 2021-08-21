@@ -5,15 +5,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>{% block title %}{% endblock %} - My Webpage</title>
     {% endblock %}
+    <!-- Styling to center code -->
+    <style>
+      div {text-align: center;}     
+    </style>
   </head>
   <!--Nav bar-->
  <div class="topnav">
   <a class="active" href="/">Home</a>
-  <a href="create.html">Create</a>
+  <a href="create1.html">Create</a>
 <!--  <a href="#contact">Contact</a>-->
 <!--  <a href="#about">About</a>-->
 </div>
-  <body>
+  <center></center> <body>
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
       {% block footer %}

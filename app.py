@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for, redirect, send_file
-from forms import UserDetails
+from forms import PersonalDetails
 app = Flask(__name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'LOLU'
 
@@ -7,15 +7,14 @@ app.config['SECRET_KEY'] = 'LOLU'
 #Takes us to home page
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    form = UserDetails()
+    form = PersonalDetails()
     return render_template('home.html', title='CV maker', form=form)
 
 #Takes us to create page
-@app.route('/create.html', methods=['GET', 'POST'])
+@app.route('/create1.html', methods=['GET', 'POST'])
 def create():
-    form = UserDetails()
-    return render_template('create.html', title='create cv', form=form)
-
+    form = PersonalDetails()
+    return render_template('create1.html', title='create cv', form=form)
 
 
 #
@@ -23,18 +22,18 @@ def create():
 def create_cv():
     from fpdf import FPDF
     from flask import Flask, request
-    from forms import UserDetails
-    form = UserDetails()
+    from forms import PersonalDetails
+    form = PersonalDetails()
 
-    # Form
+    # Form data to create cv 
     name = request.form['name']
-    # last_name = request.form['last_name']
-    # nationality = request.form['nationality']
-    # street = request.form['street']
-    # suburb = request.form['suburb']
-    # city = request.form['city']
-    # province = request.form['province']
-    # email_address = request.form['email_address']
+    last_name = request.form['last_name']
+    street = request.form['street']
+    suburb = request.form['suburb']
+    city = request.form['city']
+    province = request.form['province']
+    #email_address = request.form['email_address']
+    
 
     # CODE
     class PDF(FPDF):
@@ -81,34 +80,13 @@ def create_cv():
     pdf.set_font('Times', '', 12)
     # set page break
     pdf.set_auto_page_break(auto=True, margin=15)
-    # Form
 
-    # last_name = input('what are last name')
-    # nationality = input('Nationality')
-    # street = input('Street number and name')
-    # suburb = input('Suburb')
-    # city = input('City')
-    # province = input('province')
-    # email_address = input('email_address')
-    # cell_num = input('cell_num ')
-    # drivers_license = input('drivers_license')
-    # project_link = input('project_link')
-    #
-    # high_school_name = input('high_school_name')
-    # qualification = input('qualification ')
-    # work_experience = input('work_experience')
-    # skills = input('skills')
-    # extra_activities = input('extra_activities')
-    # references = input('references')
-    # age = input('what is your age?')
-
-    # Page
+    # CV Page
     pdf.heading('Personal details')
     pdf.text(f'First Names: {name}')
-    # pdf.text(f'Last Names: {last_name}')
-    # pdf.text(f'Nationality: {nationality}')
-    # pdf.text(f'Residential Area: {street}, {suburb}, {city}, {province}')
-    # pdf.text(f'Email Address: {email_address}')
+    pdf.text(f'Last Names: {last_name}')
+    pdf.text(f'Residential Area: {street}, {suburb}, {city}, {province}')
+    #pdf.text(f'Email Address: {email_address}')
     # pdf.text(f'Cell Numbers: {cell_num}')
     # pdf.text(f'Drivers License: {drivers_license}')
     #
@@ -122,32 +100,33 @@ def create_cv():
     # pdf.cell(40, 10, f" Hi {name}", ln=True)
     # pdf.cell(40, 10, f"You are {age} years old", ln=True)
     # pdf.cell(40, 10, "Im here to do your home work", ln=True)
-    ap = pdf.output('tmp/usercv.pdf')
+    ap = pdf.output("tmp/my_cv.pdf")
 
 
 
 
     #render_template('home.html', title='CV maker', a=a)
 
-    return render_template('create.html', title='Create Cv', form=form, a=ap)
+    return render_template('thankyou.html', title='Create Cv', form=form, a=ap)
 
 #download cv 
-@app.route('/cvdownload')
+@app.route('/cvdownload', methods=['GET', 'POST'])
 def download_v():
-    fil = "./tmp/usercv.pdf"
-    return send_file(fil, as_attachment=True, cache_timeout=0.0)
+
+    cv_pdf = ('./tmp/my_cv.pdf')
+    return send_file(cv_pdf, as_attachment=True, cache_timeout=0.0)
 
 # @app.route('/base')
 # def base():
 #     form = UserDetails()
 #     return render_template('base.html')
 
-@app.route('/return-files/')
-def return_files_tut():
-	try:
-		return send_file('/C:/Users/mudau/PycharmProjects/resbui/env', attachment_filename='test2.pdf')
-	except Exception as e:
-		return str(e)
+# @app.route('/return-files/')
+# def return_files_tut():
+# 	try:
+# 		return send_file('/C:/Users/mudau/PycharmProjects/resbui/env', attachment_filename='test2.pdf')
+# 	except Exception as e:
+# 		return str(e)
 
 if __name__ == '__main__':
     app.debug = True
