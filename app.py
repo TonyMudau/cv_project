@@ -41,19 +41,21 @@ def create_cv():
             # Logo
             # self.image('logo_pb.png', 10, 8, 33)
             # Arial bold 15
-            self.set_font('Times', '', 12)
+            self.set_font('Helvetica', 'B', 13)
             # Move to the right
-            self.cell(70)
+            self.cell(66)
             # Title
-            self.cell(30, 10, f'Curriculum Vitae of {name}', border=False, ln=1)
+            self.cell(30, 20, f'Curriculum Vitae of {name}', border=False, ln=1)
             # Line break
             self.ln(10)
 
         def heading(self, heading_title):
-            self.set_font('Times', '', 15)
+            self.set_font('Helvetica', '', 11)
+            #start, h, legnth, h
             self.set_text_color(0, 0, 255)
             self.cell(10)
             self.cell(0, 0, heading_title)
+            self.line(21, 44, 190, 44)
             self.ln(10)
 
         def text(self, ans):
@@ -83,9 +85,9 @@ def create_cv():
 
     # CV Page
     pdf.heading('Personal details')
-    pdf.text(f'First Names: {name}')
-    pdf.text(f'Last Names: {last_name}')
-    pdf.text(f'Residential Area: {street}, {suburb}, {city}, {province}')
+    pdf.text(f'First Names:     {name}')
+    pdf.text(f'Last Names:      {last_name}')
+    pdf.text(f'Residential Area:    {street}, {suburb}, {city}, {province}')
     #pdf.text(f'Email Address: {email_address}')
     # pdf.text(f'Cell Numbers: {cell_num}')
     # pdf.text(f'Drivers License: {drivers_license}')

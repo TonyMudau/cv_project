@@ -2,27 +2,130 @@
 <html>
   <head>
     {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   
     <title>{% block title %}{% endblock %} - My Webpage</title>
     {% endblock %}
+
+
     <!-- Styling to center code -->
     <style>
-      div {text-align: center;}     
+      * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: #f1f1f1;
+    }
+    
+    #appbody {
+      background-color: #ffffff;
+      margin: 100px auto;
+      font-family: Raleway;
+      padding: 10px;
+      width: 20%;
+      min-width: 300px;
+    }
+    
+    h1 {
+      text-align: center;  
+    }
+
+    p {
+      font-size: 18px;
+    }
+    
+    input {
+      padding: 10px;
+      width: 60%;
+      font-size: 17px;
+      font-family: Raleway;
+      border: 1px solid #aaaaaa;
+    }
+    
+    /* Mark input boxes that gets an error on validation: */
+    input.invalid {
+      background-color: #ffdddd;
+    }
+    
+    /* Hide all steps by default: */
+    .tab {
+      display: none;
+    }
+    
+    button {
+      background-color: #64a2ff;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 17px;
+      font-family: Raleway;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      opacity: 0.8;
+    }
+    
+    #prevBtn {
+      background-color: #bbbbbb;
+    }
+    
+    /* Make circles that indicate the steps of the form: */
+    .step {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbbbbb;
+      border: none;  
+      border-radius: 50%;
+      display: inline-block;
+      opacity: 0.5;
+    }
+    
+    .step.active {
+      opacity: 1;
+    }
+    
+    /* Mark the steps that are finished and valid: */
+    .step.finish {
+      background-color: #044caa;
+    } 
+    
+    
     </style>
+
+
+
+
   </head>
+
+
   <!--Nav bar-->
- <div class="topnav">
+  <center>
+<div class="topnav">
   <a class="active" href="/">Home</a>
   <a href="create1.html">Create</a>
 <!--  <a href="#contact">Contact</a>-->
 <!--  <a href="#about">About</a>-->
 </div>
-  <center></center> <body>
-    <div id="content">{% block content %}{% endblock %}</div>
+</center>
+
+  <body>
+    <div id="appbody">
+      {% block content %}
+      
+      {% endblock %}
+    </div>
+
+    <center>
     <div id="footer">
       {% block footer %}
       &copy; Copyright 2021 by <a href="http://learningtool.co.za/">LearningTool</a>.
       {% endblock %}
+    </center>
+
     </div>
   </body>
+
+
 </html>

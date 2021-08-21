@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block title %}Index{% endblock %}
 {% block head %}
-<script src="{{url_for('static', filename='js/formjs.js')}}"></script>
-<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+<!-- <script src="{{url_for('static', filename='js/formjs.js')}}"></script> -->
+<!-- <link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='styles/styles/style.css') }}"> -->
 
   {{ super() }}
   
@@ -15,7 +15,7 @@
 <!--#Paragraph-->
 <p>Lets see </p>
 
-
+<center>
 <form id="regForm" action="{{ url_for('create_cv') }}" method="POST">
     <!-- One "tab" for each step in the form: -->
 
@@ -54,7 +54,7 @@
       <span class="step"></span>
     </div>
   </form>
-
+</center>
   
   <script>
     var currentTab = 0; // Current tab is set to be the first tab (0)
@@ -132,7 +132,7 @@
     </script>
 
 
-<style>
+<!-- <style>
     * {
       box-sizing: border-box;
     }
@@ -146,7 +146,7 @@
       margin: 100px auto;
       font-family: Raleway;
       padding: 10px;
-      width: 70%;
+      width: 20%;
       min-width: 300px;
     }
     
@@ -210,7 +210,7 @@
     .step.finish {
       background-color: #044caa;
     }
-    </style>
+    </style> -->
 
     
 
