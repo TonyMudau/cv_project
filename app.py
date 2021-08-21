@@ -15,6 +15,9 @@ def index():
 def create():
     form = UserDetails()
     return render_template('create.html', title='create cv', form=form)
+
+
+
 #
 @app.route('/submitted', methods=['GET', 'POST'])
 def create_cv():
@@ -119,15 +122,20 @@ def create_cv():
     # pdf.cell(40, 10, f" Hi {name}", ln=True)
     # pdf.cell(40, 10, f"You are {age} years old", ln=True)
     # pdf.cell(40, 10, "Im here to do your home work", ln=True)
-    ap = pdf.output('test2.pdf')
+    ap = pdf.output('tmp/usercv.pdf')
 
 
 
 
     #render_template('home.html', title='CV maker', a=a)
 
-    return render_template('home.html', title='Create Cv', form=form, a=ap)
+    return render_template('create.html', title='Create Cv', form=form, a=ap)
 
+#download cv 
+@app.route('/cvdownload')
+def download_v():
+    fil = "./tmp/usercv.pdf"
+    return send_file(fil, as_attachment=True, cache_timeout=0.0)
 
 # @app.route('/base')
 # def base():
