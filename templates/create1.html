@@ -13,10 +13,12 @@
 <!--Header-->
   <h1>Create CV</h1>
 <!--#Paragraph-->
-<p>Lets see </p>
+<p>Lets see if our app works </p>
 
 <center>
 <form id="regForm" action="{{ url_for('create_cv') }}" method="POST">
+	
+
     <!-- One "tab" for each step in the form: -->
 
     <div class="tab"><h2>Details</h2>
@@ -24,8 +26,11 @@
         {{form.name(class="form-control form-control-lg", size=30)}}
         <center><p>Last Name:</p></center>
         {{form.last_name(class="form-control form-control-lg", size=30)}}
-     </div>
-            
+        <center><p>Email address:</p></center>
+        {{form.email_address(class="form-control form-control-lg", size=30)}}
+        <center><p>Contact number:</p></center>
+        {{form.cell_num(class="form-control form-control-lg", size=30)}}
+     </div>     
 
     <div class="tab"><h2>Address</h2>
         <center><p>Street:</p></center>
@@ -37,7 +42,126 @@
         <center><p>Province:</p></center>
         {{form.province(class="form-control form-control-lg", size=30)}}
         <center><p></p></center>
+    </div> 
+
+    <div class="tab"><h2>Date of Birth</h2>
+      <label for="start"> 
+       
+      </label> 
+      <input type="date" name="DOB"
+        placeholder="dd-mm-yyyy" value=""
+        min="1950-01-01" max="2006-12-31"> 
     </div>
+
+
+    <!-- checkbox table for languages  -->
+    <div class="tab">
+      <div class="card">
+        <table style="width: 80%" >  
+          <center><h3>Select the coding languages you have experience with</h3></center>   
+   
+          <tr>
+            <td>
+              <div class="checkbox-container">
+              <label class="checkbox-label"> 
+                  <input  type="checkbox" name='html' value='html'>
+                  <span class="checkbox-custom rectangular"></span>
+              </label>
+              <div class="input-title">html</div>
+              </div>
+            </td>
+
+            
+            <td>
+              <div class="checkbox-container">
+              <label class="checkbox-label">
+            <input  type="checkbox" name='css' value='css'>
+            <span class="checkbox-custom rectangular"></span>
+            </label>
+            <div class="input-title">css</div>
+            </div>
+          </td>
+
+            <td>
+              <div class="checkbox-container">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="python" value="python">
+                    <span class="checkbox-custom rectangular"></span>
+                </label>
+                <div class="input-title">python</div>
+                </div>
+            </td>
+          </tr>
+
+          
+          <tr>
+            <td>
+              <div class="checkbox-container">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="Java" value="Java">
+                    <span class="checkbox-custom rectangular"></span>
+                </label>
+                <div class="input-title">Java</div>
+                </div>
+            </td>
+
+            <td>
+              <div class="checkbox-container">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="javascript" value="javascript">
+                    <span class="checkbox-custom rectangular"></span>
+                </label>
+                <div class="input-title">javascript</div>
+                </div>
+          </td>
+
+            <td>
+              <div class="checkbox-container">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="SQL" value="SQL">
+                    <span class="checkbox-custom rectangular"></span>
+                </label>
+                <div class="input-title">SQL</div>
+                </div>
+            </td>
+          </tr>
+
+          <!-- <tr>
+             <td>
+              <div class="checkbox-container">
+              <label class="checkbox-label">
+                  <input type="checkbox">
+                  <span class="checkbox-custom rectangular"></span>
+              </label>
+              <div class="input-title">Rectangular</div>
+              </div>
+            </td>
+
+            <td>
+              <div class="checkbox-container">
+              <label class="checkbox-label">
+            <input type="checkbox">
+            <span class="checkbox-custom rectangular"></span>
+            </label>
+            <div class="input-title">Rectangular</div>
+            </div>
+          </td>
+
+            <td>
+              <div class="checkbox-container">
+                <label class="checkbox-label">
+                    <input type="checkbox">
+                    <span class="checkbox-custom rectangular"></span>
+                </label>
+                <div class="input-title">Rectangular</div>
+                </div>
+            </td>
+          </tr> -->
+        </table>
+      <!-- <div class="clear"></div> -->
+    </div>
+    </div>
+
 
     <div style="overflow:auto;">
       <div style="float:right;">
@@ -56,6 +180,8 @@
   </form>
 </center>
   
+
+<!-- form javascript -->
   <script>
     var currentTab = 0; // Current tab is set to be the first tab (0)
     showTab(currentTab); // Display the current tab
@@ -131,86 +257,200 @@
     }
     </script>
 
+<!-- checkbox table css -->
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+body {
+    font-family: 'Roboto', sans-serif;
+  }
 
-<!-- <style>
-    * {
-      box-sizing: border-box;
-    }
-    
-    body {
-      background-color: #f1f1f1;
-    }
-    
-    #regForm {
-      background-color: #ffffff;
-      margin: 100px auto;
-      font-family: Raleway;
-      padding: 10px;
-      width: 20%;
-      min-width: 300px;
-    }
-    
-    h1 {
-      text-align: center;  
-    }
-    
-    input {
-      padding: 10px;
-      width: 60%;
-      font-size: 17px;
-      font-family: Raleway;
-      border: 1px solid #aaaaaa;
-    }
-    
-    /* Mark input boxes that gets an error on validation: */
-    input.invalid {
-      background-color: #ffdddd;
-    }
-    
-    /* Hide all steps by default: */
-    .tab {
-      display: none;
-    }
-    
-    button {
-      background-color: #64a2ff;
-      color: #ffffff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 17px;
-      font-family: Raleway;
-      cursor: pointer;
-    }
-    
-    button:hover {
-      opacity: 0.8;
-    }
-    
-    #prevBtn {
-      background-color: #bbbbbb;
-    }
-    
-    /* Make circles that indicate the steps of the form: */
-    .step {
-      height: 15px;
-      width: 15px;
-      margin: 0 2px;
-      background-color: #bbbbbb;
-      border: none;  
-      border-radius: 50%;
-      display: inline-block;
-      opacity: 0.5;
-    }
-    
-    .step.active {
-      opacity: 1;
-    }
-    
-    /* Mark the steps that are finished and valid: */
-    .step.finish {
-      background-color: #044caa;
-    }
-    </style> -->
+.card {
+    margin: 50px auto;
+    clear: both;
+    display: block;
+    padding: 0px 0px;
+    background-color: #ffffff;
+    border-radius: 4px;
+} 
+
+.card::after {
+    clear: both;
+    display: block;
+    content: "";
+}
+
+.card .checkbox-container {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    text-align:center;
+  padding: 10px 0px;
+}
+
+.card .circular-container {
+  background-color:#0067FF;
+}
+
+.input-title {
+    clear: both;
+    padding: 0px 0px 0px 0px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 300;
+}
+
+
+
+/* Styling Checkbox Starts */
+.checkbox-label {
+    display: block;
+    position: relative;
+    margin: auto;
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 24px;
+    height: 24px;
+    width: 24px;
+    clear: both;
+}
+
+.checkbox-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-label .checkbox-custom {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    border: 2px solid #56a5ff;
+}
+
+
+.checkbox-label input:checked ~ .checkbox-custom {
+    background-color: #56a5ff;
+    border-radius: 5px;
+    -webkit-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    opacity:1;
+    border: 2px solid #FFFFFF;
+}
+
+
+.checkbox-label .checkbox-custom::after {
+    position: absolute;
+    content: "";
+    left: 12px;
+    top: 12px;
+    height: 0px;
+    width: 0px;
+    border-radius: 5px;
+    border: solid #ffffff;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(0deg) scale(0);
+    -ms-transform: rotate(0deg) scale(0);
+    transform: rotate(0deg) scale(0);
+    opacity:1;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+}
+
+
+.checkbox-label input:checked ~ .checkbox-custom::after {
+  -webkit-transform: rotate(45deg) scale(1);
+  -ms-transform: rotate(45deg) scale(1);
+  transform: rotate(45deg) scale(1);
+  opacity:1;
+  left: 8px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid #009BFF;
+  border-width: 0 2px 2px 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+
+
+/* For Ripple Effect */
+.checkbox-label .checkbox-custom::before {
+    position: absolute;
+    content: "";
+    left: 10px;
+    top: 10px;
+    width: 0px;
+    height: 0px;
+    border-radius: 5px;
+    border: 2px solid #FFFFFF;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);  
+}
+
+.checkbox-label input:checked ~ .checkbox-custom::before {
+    left: -3px;
+    top: -3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    -webkit-transform: scale(3);
+    -ms-transform: scale(3);
+    transform: scale(3);
+    opacity:0;
+    z-index: 999;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+}
+
+
+
+
+/* Style for Circular Checkbox */
+.checkbox-label .checkbox-custom.circular {
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom.circular {
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+}
+.checkbox-label input:checked ~ .checkbox-custom.circular::after {
+    border: solid #0067FF;
+    border-width: 0 2px 2px 0;
+}
+.checkbox-label .checkbox-custom.circular::after {
+    border-radius: 50%;
+}
+
+.checkbox-label .checkbox-custom.circular::before {
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom.circular::before {
+    border-radius: 50%;
+}
+    </style>
 
     
 
