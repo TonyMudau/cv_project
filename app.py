@@ -28,7 +28,7 @@ def create_cv():
     form = PersonalDetails()
 
     # Form data to create cv
-    #PERSONAL_DETAILS
+##PERSONAL_DETAILS
     name = request.form['name']
     last_name = request.form['last_name']
     street = request.form['street']
@@ -39,6 +39,7 @@ def create_cv():
     email_address = request.form['email_address']
     cell_num = request.form['cell_num']
     #When making checkboxes use exception
+##Computer skills
     try:
         html = request.form['html']
     except:
@@ -63,6 +64,15 @@ def create_cv():
         sql = request.form['SQL']
     except:
         sql = ''
+##Interpersonal skills
+
+##Certificates
+
+##Work experience 
+
+##References 
+
+##Volunteering
     
 
     # CODE
@@ -127,19 +137,39 @@ def create_cv():
     pdf.set_auto_page_break(auto=True, margin=15)
 
     # CV Page
+##Personal details
     pdf.heading('Personal details')
     pdf.lines(21, 44, 190, 44)
     pdf.text(f'Contact number:                 {cell_num}')
     pdf.text(f'Email address:                    {email_address}')
     pdf.paragraph(f"""Date of Birth:                      {DOB}
 Residential Area:               {street}, {suburb}, {city}, {province}""")
+##About me 
     pdf.heading('About me')
-    pdf.lines(21,80,190,80)
-    pdf.paragraph(f"""I am an honest and hard-working individual who believes in quality work, continuous learning and sharing information.
-I am interested in learning data science, big-data, mechine learning, user experience and digital marketing. 
-My life goal is to contribute to education and financial innovation in Africa. I currently code using {html} {css} {python} {java}""")
+    pdf.lines(21,92,190,92)
+    pdf.paragraph(f"""I am an honest and hard-working individual who believes in quality work, continuous learning and sharing 
+information. I am interested in learning data science, big-data, mechine learning, user experience and digital marketing. My life goal is to contribute to education and financial 
+innovation in Africa. I currently code using {html} {css} {python} {java}""")
+##Education
     pdf.heading('Education')
-    
+    #pdf.lines(21,124,190,124)
+    pdf.paragraph(f"""2013-2016                                                                                     National Senior Certificate
+                                                                                                       School: St Francis College""")
+    pdf.paragraph(f"""2017-2021                                                                                     Bachelor of Economics Honours
+                                                                                                       Rhodes University""")
+##Skills
+    pdf.heading(f"""Skills""")
+    #pdf.lines(21,170,190,170)
+    pdf.paragraph(f"""Computer Skills                                                                   - {javascript}
+                                                                                                        - {html} 
+                                                                                                        - {css}
+                                                                                                        - {python} 
+                                                                                                        - {java}
+                                                                                                        - {sql}""")
+    pdf.paragraph(f"""Interperonal Skills                                                                       - Good communicator
+                                                                                                                - Planner
+                                                                                                                - Alert""")
+
 
 
 
