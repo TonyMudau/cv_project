@@ -66,6 +66,13 @@ def create_cv():
         sql = ''
 ##Interpersonal skills
 
+##Education 
+    #high school
+    HS_name = request.form['school_name']
+    Start_HS = request.form['start_HS_year']
+    finish_HS = request.form['finish_HS_year']
+        
+
 ##Certificates
 
 ##Work experience 
@@ -75,7 +82,7 @@ def create_cv():
 ##Volunteering
     
 
-    # CODE
+## CODE
     class PDF(FPDF):
         def header(self):
             # Logo
@@ -85,7 +92,10 @@ def create_cv():
             # Move to the right
             self.cell(66)
             # Title
-            self.cell(30, 20, f'{name} {last_name}', border=False, ln=1)
+            if self.page_no() == 1:
+                self.cell(30, 20, f'{name} {last_name}', border=False, ln=1)
+            else:
+                self.cell(30,20," ")
             # Line break
             self.ln(10)
         
@@ -153,6 +163,12 @@ innovation in Africa. I currently code using {html} {css} {python} {java}""")
 ##Education
     pdf.heading('Education')
     #pdf.lines(21,124,190,124)
+    pdf.paragraph(f"""{Start_HS} - {finish_HS}                                                                                     National Senior Certificate
+                                                                                                              School: {HS_name}""")
+    pdf.paragraph(f"""{Start_HS} - {finish_HS}                                                                            National Senior Certificate
+                                                                                                              School: {HS_name}""")
+##Certificates
+    pdf.heading('Online Certificates')
     pdf.paragraph(f"""2013-2016                                                                                     National Senior Certificate
                                                                                                        School: St Francis College""")
     pdf.paragraph(f"""2017-2021                                                                                     Bachelor of Economics Honours
@@ -160,15 +176,52 @@ innovation in Africa. I currently code using {html} {css} {python} {java}""")
 ##Skills
     pdf.heading(f"""Skills""")
     #pdf.lines(21,170,190,170)
+##Computer skills
     pdf.paragraph(f"""Computer Skills                                                                   - {javascript}
                                                                                                         - {html} 
                                                                                                         - {css}
                                                                                                         - {python} 
                                                                                                         - {java}
                                                                                                         - {sql}""")
+##Interpersonal skills
     pdf.paragraph(f"""Interperonal Skills                                                                       - Good communicator
                                                                                                                 - Planner
                                                                                                                 - Alert""")
+##Other skills
+    pdf.paragraph(f"""Computer Skills                                                                   - {javascript}
+                                                                                                        - {html} 
+                                                                                                        - {css}
+                                                                                                        - {python} 
+                                                                                                        - {java}
+                                                                                                        - {sql}""")
+##Work experience 
+    pdf.heading('Work Experience')
+    #pdf.lines(21,124,190,124)
+    pdf.paragraph(f"""2019-2018                                                                   - Tutor
+                                                                                                        - {html} 
+                                                                                                        - {css}
+                                                                                                        - {python} 
+                                                                                                        - {java}
+                                                                                                        - {sql}""")
+    pdf.paragraph(f"""2019-2018                                                                   - Tutor
+                                                                                                        - {html} 
+                                                                                                        - {css}
+                                                                                                        - {python} 
+                                                                                                        - {java}
+                                                                                                        - {sql}""")
+##Volunteering
+    pdf.heading('Volunteering')
+    #pdf.lines(21,124,190,124)
+    pdf.paragraph(f"""2019-2018                                                                   - Student Volunteer
+                                                                                                        """)
+##References
+    pdf.heading('References')
+    pdf.paragraph(f"""Contact:                                                                   hgkgfkjtykj
+                                                                                                gjhgfjfgjhj
+                                                                                                ghjhfjfjrf
+                                                                                                        """)
+
+
 
 
 
