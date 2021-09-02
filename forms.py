@@ -19,10 +19,13 @@ class PersonalDetails(FlaskForm):
     date_of_birth = StringField('date_of_birth', validators=[DataRequired(), Length(min=2, max=20)])
     #There is no class made for radio inputs under languages 
 ##About Me
-    stregnths1 = StringField('stregnths1', validators=[Length(min=4, max=25)])
-    stregnths2 = StringField('stregnths2', validators=[Length(min=4, max=25)])
-    stregnths3 = StringField('stregnths3', validators=[Length(min=4, max=25)])
-    interests1 = StringField('interests1', validators=[Length(min=4, max=25)])
+    learning1 = StringField('learning1', validators=[Length(min=4, max=25)])
+    learning2 = StringField('learning2', validators=[Length(min=4, max=25)])
+    learning3 = StringField('learning3', validators=[Length(min=4, max=25)])
+
+    contribute1 = StringField('contribute1', validators=[Length(min=4, max=25)])
+    contribute2 = StringField('contribute2', validators=[Length(min=4, max=25)])
+    
 ##Education 
     #High_school
     start_HS_year = DateField('Start_HS', format='%Y')
@@ -45,17 +48,23 @@ class PersonalDetails(FlaskForm):
     other_skill1 =  StringField('other_skill1', validators=[DataRequired(), Length(min=2, max=20)])
     other_skill2 =  StringField('other_skill2', validators=[DataRequired(), Length(min=2, max=20)])
     other_skill3 =  StringField('other_skill3', validators=[DataRequired(), Length(min=2, max=20)])
-    other_skill4 =  StringField('other_skill3', validators=[DataRequired(), Length(min=2, max=20)])
+    #other_skill4 =  StringField('other_skill3', validators=[DataRequired(), Length(min=2, max=20)])
 ##Work Experience 
-    job_name =  StringField('cert_name', validators=[DataRequired(), Length(min=2, max=20)])
-    site = StringField('cert_site', validators=[DataRequired(), Length(min=2, max=20)])
-    cert_date = DateField('Start_college', format='%Y - %M')
-    cert_id = StringField('college_name', validators=[DataRequired(), Length(min=2, max=20)])
-##Skills 
+    job1_title =  StringField('job1_title', validators=[DataRequired(), Length(min=2, max=20)])
+    job1_started = DateField('job1_started', format='%Y - %M')
+    job1_finished = DateField('job1_finished', format='%Y - %M')
+##learning
+
 
 ##Volunteering 
 
 ##Refernces 
+
+    ref1_name =StringField ('ref1_name', validators=[DataRequired(), Length(min=2, max=20)])
+    ref1_lastname = StringField ('ref1_lastname', validators=[DataRequired(), Length(min=2, max=20)])
+    ref1_email = StringField('ref1_email', validators=[DataRequired(), Length(min=2, max=20)])
+    ref1_mumber = StringField('ref1_mumber', validators=[DataRequired(), Length(min=2, max=11)])
+   
 
 
     submit = SubmitField('Submit')

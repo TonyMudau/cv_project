@@ -105,7 +105,7 @@
 </div> 
 
 <div class="tab"><h2>About Me</h2>
-  <center><p>List 2 things you are contributing to:</p></center>
+  <center><p>List 2 things you want to contribute to:</p></center>
   {{form.contribute1(class="form-control form-control-lg", size=30)}}
 
   {{form.contribute2(class="form-control form-control-lg", size=30)}}
@@ -117,19 +117,14 @@
 <div class="tab"><h2>List any other skills</h2>
   
   {{form.other_skill1(class="form-control form-control-lg", size=30)}}
-  <br>
+ 
   {{form.other_skill2(class="form-control form-control-lg", size=30)}}
   
   {{form.other_skill3(class="form-control form-control-lg", size=30)}}
   
-  {{form.other_skill4(class="form-control form-control-lg", size=30)}}
+
   <center><p></p></center>
 </div> 
-
-
-
-
-
 
 
 
@@ -203,8 +198,25 @@
     </div>
     </div>
 
+    <div class="tab"><h2>Work Experience:</h2>
+      <center><p>Certificate:</p></center>
+      {{form.job1_title(class="form-control form-control-lg", size=30)}}
+      <center><p>From (site url):</p></center>
+      {{form.job1_started(class="form-control form-control-lg", size=30)}}
+      <center><p>Date completed:</p></center>
+      {{form.job1_finished(class="form-control form-control-lg", size=30)}}
+      <center><p></p></center>
+    </div>
 
-
+    <div class="tab"><h2>Three things youd like to learn:</h2>
+      
+      {{form.learning1(class="form-control form-control-lg", size=30)}}
+    
+      {{form.learning2(class="form-control form-control-lg", size=30)}}
+     
+      {{form.learning3(class="form-control form-control-lg", size=30)}}
+      <center><p></p></center>
+    </div>
 
         <!-- checkbox table for languages  -->
         <div class="tab">
@@ -312,7 +324,29 @@
         </div>
         </div>
 
+<!-- references -->
 
+<div class="tab">references:</h2>
+  <center><p>Reference Name:</p></center>
+  {{form.ref1_name(class="form-control form-control-lg", size=30)}}
+  <center><p>Last Name:</p></center>
+  {{form.ref1_lastname(class="form-control form-control-lg", size=30)}}
+  <center><p>Reference Email address:</p></center>
+  {{form.ref1_email(class="form-control form-control-lg", size=30)}}
+  <center><p>Reference Contact number:</p></center>
+  {{form.ref1_mumber(class="form-control form-control-lg", size=30)}}
+</div>     
+
+
+        <div class="tab"><h2>references:</h2>
+      
+          {{form.learning1(class="form-control form-control-lg", size=30)}}
+        
+          {{form.learning2(class="form-control form-control-lg", size=30)}}
+         
+          {{form.learning3(class="form-control form-control-lg", size=30)}}
+          <center><p></p></center>
+        </div>
     
     
         <div style="overflow:auto;">
@@ -324,6 +358,12 @@
         
         <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
