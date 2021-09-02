@@ -1,26 +1,3 @@
-from flask import Flask, render_template, request, url_for, redirect, send_file
-from forms import PersonalDetails
-
-
-app = Flask(__name__, template_folder='templates')
-app.config['SECRET_KEY'] = 'LOLU'
-
-
-#Takes us to home page
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    form = PersonalDetails()
-    return render_template('home.html', title='CV maker', form=form)
-
-#Takes us to create page
-@app.route('/create1.html', methods=['GET', 'POST'])
-def create():
-    form = PersonalDetails()
-    return render_template('create1.html', title='create cv', form=form)
-
-
-
-@app.route('/submitted', methods=['GET', 'POST'])
 def create_cv():
     from fpdf import FPDF
     from flask import Flask, request
@@ -95,8 +72,6 @@ def create_cv():
     learning2 = request.form['learning2']
     learning3 = request.form['learning3']
 
-    contribute1 = request.form['contribute1']
-    contribute2 = request.form['contribute2']
 
 ##Education 
     #high school
@@ -111,7 +86,8 @@ def create_cv():
     qualification = request.form['qualification']
 
 ##Skills you are interested in 
-    
+
+        
 
 ##Online Certificates
     #Certificate 1
@@ -290,26 +266,3 @@ innovation in Africa. I currently code using {html}, {css}, {python} and {java}"
     #render_template('home.html', title='CV maker', a=a)
 
     return render_template('thankyou.html', title='Create Cv', form=form, a=ap)
-
-#download cv 
-@app.route('/cvdownload', methods=['GET', 'POST'])
-def download_v():
-
-    cv_pdf = ('./tmp/my_cv.pdf')
-    return send_file(cv_pdf, as_attachment=True, cache_timeout=0.0)
-
-# @app.route('/base')
-# def base():
-#     form = UserDetails()
-#     return render_template('base.html')
-
-# @app.route('/return-files/')
-# def return_files_tut():
-# 	try:
-# 		return send_file('/C:/Users/mudau/PycharmProjects/resbui/env', attachment_filename='test2.pdf')
-# 	except Exception as e:
-# 		return str(e)
-
-if __name__ == '__main__':
-    app.debug = True
-    app.run()
