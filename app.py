@@ -29,7 +29,7 @@ def create_cv():
 
     # Form data to create cv
 ##PERSONAL_DETAILS
-    name = request.form['name']
+    # name = request.form['name']
     last_name = request.form['last_name']
     street = request.form['street']
     suburb = request.form['suburb']

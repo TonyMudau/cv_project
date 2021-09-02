@@ -31,11 +31,11 @@ class PersonalDetails(FlaskForm):
     #Uni/college
     start_college_year = DateField('Start_college', format='%Y')
     finish_college_year = DateField('finish_college', format='%Y')
-    college_name = StringField('college_name', validators=[DataRequired(), Length(min=2, max=20)])
-    qualification = StringField('qualification', validators=[DataRequired(), Length(min=2, max=20)])
+    college_name = StringField('college_name', validators=[Length(min=2, max=20)])
+    qualification = StringField('qualification', validators=[Length(min=2, max=20)])
 ##Online Certificates
-    cert_name =  StringField('cert_name', validators=[DataRequired(), Length(min=2, max=20)])
-    site = StringField('cert_site', validators=[DataRequired(), Length(min=2, max=20)])
+    cert_name =  StringField('cert_name', validators=[Length(min=2, max=20)])
+    site = StringField('cert_site', validators=[Length(min=2, max=20)])
     cert_date = DateField('Start_college', format='%Y - %M')
     cert_id = StringField('college_name', validators=[DataRequired(), Length(min=2, max=20)])
 ##Skills 
