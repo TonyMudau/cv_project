@@ -254,13 +254,15 @@ innovation in Africa. I currently code using {html}, {css}, {python} and {java}"
 ##Work experience 
     pdf.heading('Work Experience')
     #pdf.lines(21,124,190,124)
-    pdf.paragraph(f"""2019-2018                                                                                 - Tutor
+    pdf.paragraph(f"""{job1_started} - {job1_finished}                                                                                - {job_title1}
+                                                                                                            TASKS:
                                                                                                                 - {html} 
                                                                                                                 - {css}
                                                                                                                 - {python} 
                                                                                                                 - {java}
                                                                                                                 - {sql}""")
-    pdf.paragraph(f"""2019-2018                                                                                 - Tutor
+    pdf.paragraph(f"""{job2_started} - {job2_finished}                                                                                 - {job_title2}
+                                                                                                            TASKS:
                                                                                                                 - {html} 
                                                                                                                 - {css}
                                                                                                                 - {python} 
