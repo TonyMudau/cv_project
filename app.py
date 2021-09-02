@@ -130,6 +130,11 @@ def create_cv():
 ##References 
 
 ##Volunteering
+    ref1_name = request.form['ref1_name']
+    ref1_lastname = request.form['ref1_lastname']
+    ref1_institution = request.form['ref1_institution']
+    ref1_number = request.form['ref1_number']
+    ref1_email = request.form['ref1_email']
     
 
 ## CODE
@@ -268,9 +273,10 @@ innovation in Africa. I currently code using {html}, {css}, {python} and {java}"
                                                                                                         """)
 ##References
     pdf.heading('References')
-    pdf.paragraph(f"""Contact:                                  hgkgfkjtykj
-                                                                gjhgfjfgjhj
-                                                                ghjhfjfjrf
+    pdf.paragraph(f"""Contact:                                  {ref1_name} {ref1_lastname}
+                                                                {ref1_institution}
+                                                                {ref1_number}
+                                                                {ref1_email}
                                                                 """)
 
 
