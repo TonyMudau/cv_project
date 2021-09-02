@@ -45,6 +45,7 @@ class PersonalDetails(FlaskForm):
     other_skill1 =  StringField('other_skill1', validators=[DataRequired(), Length(min=2, max=20)])
     other_skill2 =  StringField('other_skill2', validators=[DataRequired(), Length(min=2, max=20)])
     other_skill3 =  StringField('other_skill3', validators=[DataRequired(), Length(min=2, max=20)])
+    other_skill4 =  StringField('other_skill3', validators=[DataRequired(), Length(min=2, max=20)])
 ##Work Experience 
     job_name =  StringField('cert_name', validators=[DataRequired(), Length(min=2, max=20)])
     site = StringField('cert_site', validators=[DataRequired(), Length(min=2, max=20)])

@@ -13,14 +13,15 @@
 <!--Header-->
   <h1>Create CV</h1>
 <!--#Paragraph-->
-<p>Lets see if our app works </p>
+<center><p>Lets see if our app works </p></center>
+
 
 <center>
 <form id="regForm" action="{{ url_for('create_cv') }}" method="POST">
 	
 
     <!-- One "tab" for each step in the form: -->
-<!-- 
+
     <div class="tab"><h2>Details</h2>
         <center><p>Name:</p></center>
         {{form.name(class="form-control form-control-lg", size=30)}}
@@ -30,9 +31,9 @@
         {{form.email_address(class="form-control form-control-lg", size=30)}}
         <center><p>Contact number:</p></center>
         {{form.cell_num(class="form-control form-control-lg", size=30)}}
-     </div>      -->
+     </div>     
 
-    <!-- <div class="tab"><h2>Address</h2>
+    <div class="tab"><h2>Address</h2>
         <center><p>Street:</p></center>
         {{form.street(class="form-control form-control-lg", size=30)}}
         <center><p>Suburb:</p></center>
@@ -42,7 +43,7 @@
         <center><p>Province:</p></center>
         {{form.province(class="form-control form-control-lg", size=30)}}
         <center><p></p></center>
-    </div>  -->
+    </div> 
 
     <div class="tab"><h2>Education</h2>
       <center><p>High School Name:</p></center>
@@ -52,13 +53,13 @@
       <center><p>Year completed:</p></center>
       {{form.finish_HS_year(class="form-control form-control-lg", size=30)}}
       <center><p>Name of qualification:</p></center>
-     <center><p style="width:215px;height:40px;border:1px solid #0000;">National Senior Certificate</p></center>
+     <center><p style="width:215px;height:40px;border:1px solid #000;">National Senior Certificate</p></center>
       <center><p></p></center>
   </div> 
 
   <div class="tab"><h2>Education</h2>
     <center><p>Name of College/University:</p></center>
-    {{form.school_name(class="form-control form-control-lg", size=30)}}
+    {{form.college_name(class="form-control form-control-lg", size=30)}}
     <center><p>Year started:</p></center>
     {{form.start_college_year(class="form-control form-control-lg", size=30)}}
     <center><p>Year completed:</p></center>
@@ -67,6 +68,34 @@
     {{form.qualification(class="form-control form-control-lg", size=30)}}
     <center><p></p></center>
 </div> 
+
+
+<div class="tab"><h2>Online Certificate</h2>
+  <center><p>Certificate:</p></center>
+  {{form.cert_name(class="form-control form-control-lg", size=30)}}
+  <center><p>From (site url):</p></center>
+  {{form.site(class="form-control form-control-lg", size=30)}}
+  <center><p>Date completed:</p></center>
+  {{form.cert_date(class="form-control form-control-lg", size=30)}}
+  <center><p>Name of qualification:</p></center>
+  {{form.cert_id(class="form-control form-control-lg", size=30)}}
+  <center><p></p></center>
+</div> 
+
+<!-- Other skills -->
+
+<div class="tab"><h2>List any other skills</h2>
+  
+  {{form.other_skill1(class="form-control form-control-lg", size=30)}}
+  <br>
+  {{form.other_skill2(class="form-control form-control-lg", size=30)}}
+  
+  {{form.other_skill3(class="form-control form-control-lg", size=30)}}
+  
+  {{form.other_skill4(class="form-control form-control-lg", size=30)}}
+  <center><p></p></center>
+</div> 
+
 
 
 
@@ -83,39 +112,39 @@
 
 
 
-    <!-- checkbox table for somethings 
+    <!-- checkbox table for Interpersonal skills  -->
     <div class="tab">
       <div class="card">
         <table style="width: 80%" >  
-          <center><h3>Select the coding languages you have experience with</h3></center>   
+          <center><h3>Select your interpersonal skills</h3></center>   
    
           <tr>
             <td>
               <div class="checkbox-container">
               <label class="checkbox-label"> 
-                  <input  type="checkbox" name='html' value='html'>
+                  <input  type="checkbox" name='Teamwork' value='-Teamwork'>
                   <span class="checkbox-custom rectangular"></span>
               </label>
-              <div class="input-title">html</div>
+              <div class="input-title">Teamwork</div>
               </div>
             </td>
             <td>
               <div class="checkbox-container">
               <label class="checkbox-label">
-            <input  type="checkbox" name='css' value='css'>
+            <input  type="checkbox" name='Verbal & written communication' value='Verbal & written communication'>
             <span class="checkbox-custom rectangular"></span>
             </label>
-            <div class="input-title">css</div>
+            <div class="input-title">Verbal & written communication</div>
             </div>
           </td>
 
             <td>
               <div class="checkbox-container">
                 <label class="checkbox-label">
-                    <input type="checkbox" name="python" value="python">
+                    <input type="checkbox" name="Dependability" value="Dependability">
                     <span class="checkbox-custom rectangular"></span>
                 </label>
-                <div class="input-title">python</div>
+                <div class="input-title">Dependability</div>
                 </div>
             </td>
           </tr>
@@ -123,28 +152,28 @@
             <td>
               <div class="checkbox-container">
                 <label class="checkbox-label">
-                    <input type="checkbox" name="Java" value="Java">
+                    <input type="checkbox" name="Responsibility" value="Responsibility">
                     <span class="checkbox-custom rectangular"></span>
                 </label>
-                <div class="input-title">Java</div>
+                <div class="input-title">Responsibility</div>
                 </div>
             </td>
             <td>
               <div class="checkbox-container">
                 <label class="checkbox-label">
-                    <input type="checkbox" name="javascript" value="javascript">
+                    <input type="checkbox" name="Empathy" value="Empathy">
                     <span class="checkbox-custom rectangular"></span>
                 </label>
-                <div class="input-title">javascript</div>
+                <div class="input-title">Empathy</div>
                 </div>
           </td>
             <td>
               <div class="checkbox-container">
                 <label class="checkbox-label">
-                    <input type="checkbox" name="SQL" value="SQL">
+                    <input type="checkbox" name="negotiator" value="negotiator">
                     <span class="checkbox-custom rectangular"></span>
                 </label>
-                <div class="input-title">SQL</div>
+                <div class="input-title">negotiator</div>
                 </div>
             </td>
           </tr>
@@ -152,7 +181,7 @@
     </div>
     </div>
 
- -->
+
 
 
         <!-- checkbox table for languages  -->
@@ -260,6 +289,8 @@
           <!-- <div class="clear"></div> -->
         </div>
         </div>
+
+
     
     
         <div style="overflow:auto;">
@@ -271,6 +302,8 @@
         
         <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
