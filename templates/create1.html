@@ -21,7 +21,7 @@
 	
 
     <!-- One "tab" for each step in the form: -->
-
+<!-- 
     <div class="tab"><h2>Details</h2>
         <center><p>Name:</p></center>
         {{form.name(class="form-control form-control-lg", size=30)}}
@@ -43,19 +43,19 @@
         <center><p>Province:</p></center>
         {{form.province(class="form-control form-control-lg", size=30)}}
         <center><p></p></center>
-    </div> 
+    </div>  -->
 
     <!-- DOB -->
-    <div class="tab"><h2>Date of Birth</h2>
+    <!-- <div class="tab"><h2>Date of Birth</h2>
       <label for="start"> 
        
       </label> 
       <input type="date" name="DOB"
         placeholder="dd-mm-yyyy" value=""
         min="1950-01-01" max="2006-12-31"> 
-    </div>
+    </div> -->
 
-
+<!-- 
     <div class="tab"><h2>Education</h2>
       <center><p>High School Name:</p></center>
       {{form.school_name(class="form-control form-control-lg", size=30)}}
@@ -66,7 +66,7 @@
       <center><p>Name of qualification:</p></center>
      <center><p style="width:215px;height:40px;border:1px solid #000;">National Senior Certificate</p></center>
       <center><p></p></center>
-  </div> 
+  </div>  -->
 
   <div class="tab"><h2>Education</h2>
     <center><p>Name of College/University:</p></center>
@@ -75,6 +75,18 @@
     {{form.start_college_year(class="form-control form-control-lg", size=30)}}
     <center><p>Year completed:</p></center>
     {{form.finish_college_year(class="form-control form-control-lg", size=30)}}
+    <center><p>Or</p></center>
+    <div class="checkbox-container">
+      <label class="checkbox-label"> 
+          <input  type="checkbox" name='uni_in_progress' value='uni in progress'>
+          <span class="checkbox-custom rectangular"></span>
+      </label>
+      <div class="input-title">In progress</div>
+      </div>
+   
+
+ 
+      
     <center><p>Name of qualification:</p></center>
     {{form.qualification(class="form-control form-control-lg", size=30)}}
     <center><p></p></center>
@@ -88,8 +100,6 @@
   {{form.site(class="form-control form-control-lg", size=30)}}
   <center><p>Date completed:</p></center>
   {{form.cert_date(class="form-control form-control-lg", size=30)}}
-  <center><p>Name of qualification:</p></center>
-  {{form.cert_id(class="form-control form-control-lg", size=30)}}
   <center><p></p></center>
 </div> 
 
@@ -102,6 +112,36 @@
   {{form.learning2(class="form-control form-control-lg", size=30)}}
  
   {{form.learning3(class="form-control form-control-lg", size=30)}}
+
+  <div class="card">
+    <center>
+    <table style="width: 80%" >  
+      <center><h3>Some Ideas</h3></center>   
+      <tr>
+        <td>
+          <div class="checkbox-container">
+          <label class="checkbox-label"> 
+              <input  type="checkbox" name='Teamwork' value='-Teamwork'>
+              <span class="checkbox-custom rectangular"></span>
+          </label>
+          <div class="input-title">Teamwork</div>
+          </div>
+        </td>
+      
+        <td>
+          <div class="checkbox-container">
+            <label class="checkbox-label">
+                <input type="checkbox" name="Dependability" value="Dependability">
+                <span class="checkbox-custom rectangular"></span>
+            </label>
+            <div class="input-title">Dependability</div>
+            </div>
+        </td>
+      </tr>
+    </table>
+  </center>
+</div>
+
 </div> 
 
 <div class="tab"><h2>About Me</h2>
@@ -110,6 +150,71 @@
 
   {{form.contribute2(class="form-control form-control-lg", size=30)}}
  
+  <div class="card">
+    <table style="width: 80%" >  
+      <center><h3>Select your interpersonal skills</h3></center>   
+
+      <tr>
+        <td>
+          <div class="checkbox-container">
+          <label class="checkbox-label"> 
+              <input  type="checkbox" name='Teamwork' value='-Teamwork'>
+              <span class="checkbox-custom rectangular"></span>
+          </label>
+          <div class="input-title">Teamwork</div>
+          </div>
+        </td>
+        <td>
+          <div class="checkbox-container">
+          <label class="checkbox-label">
+        <input  type="checkbox" name='Verbal & written communication' value='Verbal & written communication'>
+        <span class="checkbox-custom rectangular"></span>
+        </label>
+        <div class="input-title">Verbal & written communication</div>
+        </div>
+      </td>
+
+        <td>
+          <div class="checkbox-container">
+            <label class="checkbox-label">
+                <input type="checkbox" name="Dependability" value="Dependability">
+                <span class="checkbox-custom rectangular"></span>
+            </label>
+            <div class="input-title">Dependability</div>
+            </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="checkbox-container">
+            <label class="checkbox-label">
+                <input type="checkbox" name="Responsibility" value="Responsibility">
+                <span class="checkbox-custom rectangular"></span>
+            </label>
+            <div class="input-title">Responsibility</div>
+            </div>
+        </td>
+        <td>
+          <div class="checkbox-container">
+            <label class="checkbox-label">
+                <input type="checkbox" name="Empathy" value="Empathy">
+                <span class="checkbox-custom rectangular"></span>
+            </label>
+            <div class="input-title">Empathy</div>
+            </div>
+      </td>
+        <td>
+          <div class="checkbox-container">
+            <label class="checkbox-label">
+                <input type="checkbox" name="negotiator" value="negotiator">
+                <span class="checkbox-custom rectangular"></span>
+            </label>
+            <div class="input-title">negotiator</div>
+            </div>
+        </td>
+      </tr>
+    </table>
+</div>
 </div> 
 
 <!-- Other skills -->
@@ -329,12 +434,12 @@
 <div class="tab">references:</h2>
   <center><p>Reference Name:</p></center>
   {{form.ref1_name(class="form-control form-control-lg", size=30)}}
-  <center><p>Last Name:</p></center>
+  <center><p>Reference Last Name:</p></center>
   {{form.ref1_lastname(class="form-control form-control-lg", size=30)}}
   <center><p>Reference Email address:</p></center>
   {{form.ref1_email(class="form-control form-control-lg", size=30)}}
   <center><p>Reference Contact number:</p></center>
-  {{form.ref1_mumber(class="form-control form-control-lg", size=30)}}
+  {{form.ref1_number(class="form-control form-control-lg", size=30)}}
 </div>     
 
 
@@ -427,15 +532,15 @@
       x = document.getElementsByClassName("tab");
       y = x[currentTab].getElementsByTagName("input");
       // A loop that checks every input field in the current tab:
-      for (i = 0; i < y.length; i++) {
-        // If a field is empty...
-        if (y[i].value == "") {
-          // add an "invalid" class to the field:
-          y[i].className += " invalid";
-          // and set the current valid status to false
-          valid = false;
-        }
-      }
+      // for (i = 0; i < y.length; i++) {
+      //   // If a field is empty...
+      //   if (y[i].value == "") {
+      //     // add an "invalid" class to the field:
+      //     y[i].className += " invalid";
+      //     // and set the current valid status to false
+      //     valid = false;
+      //   }
+      // }
       // If the valid status is true, mark the step as finished and valid:
       if (valid) {
         document.getElementsByClassName("step")[currentTab].className += " finish";

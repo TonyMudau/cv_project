@@ -63,7 +63,7 @@ class PersonalDetails(FlaskForm):
     ref1_name =StringField ('ref1_name', validators=[DataRequired(), Length(min=2, max=20)])
     ref1_lastname = StringField ('ref1_lastname', validators=[DataRequired(), Length(min=2, max=20)])
     ref1_email = StringField('ref1_email', validators=[DataRequired(), Length(min=2, max=20)])
-    ref1_mumber = StringField('ref1_mumber', validators=[DataRequired(), Length(min=2, max=11)])
+    ref1_number = StringField('ref1_number', validators=[DataRequired(), Length(min=2, max=11)])
    
 
 
