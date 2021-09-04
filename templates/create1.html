@@ -21,7 +21,7 @@
 	
 
     <!-- One "tab" for each step in the form: -->
-<!-- 
+
     <div class="tab"><h2>Details</h2>
         <center><p>Name:</p></center>
         {{form.name(class="form-control form-control-lg", size=30)}}
@@ -43,19 +43,19 @@
         <center><p>Province:</p></center>
         {{form.province(class="form-control form-control-lg", size=30)}}
         <center><p></p></center>
-    </div>  -->
+    </div> 
 
     <!-- DOB -->
-    <!-- <div class="tab"><h2>Date of Birth</h2>
+    <div class="tab"><h2>Date of Birth</h2>
       <label for="start"> 
        
       </label> 
       <input type="date" name="DOB"
         placeholder="dd-mm-yyyy" value=""
         min="1950-01-01" max="2006-12-31"> 
-    </div> -->
+    </div>
 
-<!-- 
+
     <div class="tab"><h2>Education</h2>
       <center><p>High School Name:</p></center>
       {{form.school_name(class="form-control form-control-lg", size=30)}}
@@ -66,7 +66,7 @@
       <center><p>Name of qualification:</p></center>
      <center><p style="width:215px;height:40px;border:1px solid #000;">National Senior Certificate</p></center>
       <center><p></p></center>
-  </div>  -->
+  </div> 
 
   <div class="tab"><h2>Education</h2>
     <center><p>Name of College/University:</p></center>
@@ -78,15 +78,12 @@
     <center><p>Or</p></center>
     <div class="checkbox-container">
       <label class="checkbox-label"> 
-          <input  type="checkbox" name='uni_in_progress' value='uni in progress'>
+          <input  type="checkbox" name='uni_in_progress' value='In progress'>
           <span class="checkbox-custom rectangular"></span>
       </label>
       <div class="input-title">In progress</div>
       </div>
    
-
- 
-      
     <center><p>Name of qualification:</p></center>
     {{form.qualification(class="form-control form-control-lg", size=30)}}
     <center><p></p></center>

@@ -30,15 +30,39 @@ def create_cv():
 
     # Form data to create cv
 ##PERSONAL_DETAILS
-    name = request.form['name']
-    last_name = request.form['last_name']
-    street = request.form['street']
-    suburb = request.form['suburb']
-    city = request.form['city']
-    province = request.form['province']
-    DOB = request.form['DOB']
-    email_address = request.form['email_address']
-    cell_num = request.form['cell_num']
+    try:
+        name = request.form['name']
+    except:
+        name = "Enter Name"
+    try:
+        last_name = request.form['last_name']
+    except:
+        last_name = "Enter Last Name"
+    try:
+        street = request.form['street']
+    except:
+        street = "Enter street"
+    try:
+        suburb = request.form['suburb']
+    except:
+        suburb = "Enter suburb"
+    try:
+        city = request.form['city']
+    except:
+        city = "Enter City"
+    try:
+        province = request.form['province']
+    except:
+        province = "Enter province"
+    try:
+        DOB = request.form['DOB']
+    except:
+        email_address = request.form['email_address']
+    try:
+        cell_num = request.form['cell_num']
+    except:
+        cell_num = "Enter Cell Number"
+
     #When making checkboxes use exception
 ##Computer skills
     try:
@@ -108,24 +132,47 @@ def create_cv():
 ##Education 
     #high school
     HS_name = request.form['school_name'] 
+    start_HS_year = request.form['start_HS_year']
+    finish_HS_year = request.form['finish_HS_year']
+
+    #uni/college 
+    try:
+        college_name = request.form['college_name']
+    except:
+        college_name = ''
+    try:   
+        start_college_year = request.form['start_college_year']
+    except:
+       start_college_year = ''
+    try:
+        finish_college_year = request.form['finish_college_year']
+    except:
+        finish_college_year = ''
+    try:
+        qualification = request.form['qualification']
+    except:
+        qualification = ''
+    try:
+        in_progress = request.form['uni_in_progress']
+    except:
+        in_progress = ''
+
+
 ##Online Certificates
     #Certificate 1
     try:
         cert_name = request.form['cert_name']
     except:
-        ""
+        cert_name = ''
     try:
-        site = request.form['site']
+        cert_site = request.form['site']
     except:
-        ""
+        cert_site = ''
     try:
-        cert_date = request.form['cert_name']
+        cert_date = request.form['cert_date']
     except:
-        ""
-    try:
-        cert_id = request.form['cert_id']
-    except:
-        ""
+        cert_date = ''
+
 
 ##Other Skills 
     other_skill1 =  request.form['other_skill1']
@@ -222,20 +269,27 @@ Residential Area:               {street}, {suburb}, {city}, {province}""")
     pdf.heading('About me')
     pdf.lines(21,92,190,92)
     pdf.paragraph(f"""I am an honest and hard-working individual who believes in quality work, continuous learning and sharing 
-information. I am interested in learning {learning1}, {learning2} and {learning3}. I am interested in contributing to {contribute1}
+information. I am interested in learning {learning1} and {learning2}. I am interested in contributing to {contribute1}
 and {contribute2}. I currently code using {html}, {css}, {python} and {java} {sql}""")
 ##Education
     pdf.heading('Education')
     #pdf.lines(21,124,190,124)
-    pdf.paragraph(f"""{Start_HS} - {finish_HS}                                                                                     National Senior Certificate
+    pdf.paragraph(f"""{start_HS_year} - {finish_HS_year}                                                                                     National Senior Certificate
                                                                                                               School: {HS_name}""")
-    pdf.paragraph(f"""{start_college_year} - {finish_college_year}                                                                           {qualification}
+    if college_name == '':
+        pdf.paragraph()
+    else:
+        pdf.paragraph(f"""{start_college_year} - {finish_college_year}                                                                           {qualification}
                                                                                                               School: {college_name}""")
 ##Certificates
-    pdf.heading('Online Certificates')
-    pdf.paragraph(f"""   {cert_name}  
-    Completed: {cert_date}
-    ID:   {cert_id}  """)
+    
+    if cert_name == '':
+        pdf.paragraph()
+    else:
+        pdf.heading('Online Certificates')
+        pdf.paragraph(f"""{cert_name}  
+        Completed: {cert_site}
+    Completed on:  {cert_date} """)
 ##Skills
     pdf.heading(f"""Skills""")
     #pdf.lines(21,170,190,170)
@@ -284,7 +338,7 @@ and {contribute2}. I currently code using {html}, {css}, {python} and {java} {sq
 ##References
     pdf.heading('References')
     pdf.paragraph(f"""Contact:                                  {ref1_name} {ref1_lastname}
-                                                                {ref1_institution}
+                                                               
                                                                 {ref1_number}  
                                                                 {ref1_email}
                                                                 """)
