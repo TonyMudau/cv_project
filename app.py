@@ -33,7 +33,7 @@ def create_cv():
     try:
         name = request.form['name']
     except:
-        name = "Enter Name"
+        name = 'Enter Name'
     try:
         last_name = request.form['last_name']
     except:
@@ -57,7 +57,11 @@ def create_cv():
     try:
         DOB = request.form['DOB']
     except:
+        DOB = "Enter Date of Birth"
+    try:
         email_address = request.form['email_address']
+    except:
+        email_address = "Enter Email"
     try:
         cell_num = request.form['cell_num']
     except:
@@ -117,9 +121,36 @@ def create_cv():
 
 ##About me 
     #Skills you are interested in 
-    learning1 = request.form['learning1']
-    learning2 = request.form['learning2']
-    learning3 = request.form['learning3']
+    try:
+        learning1 = request.form['learning1']
+    except:
+        learning1 = ""
+    try:
+        learning2 = request.form['learning2']
+    except:
+        learning2 ="" 
+    try:
+        learning3 = request.form['learning3']
+    except:
+        learning3 =""
+
+    #Some ideas of skills you might be interested in
+    try:
+        basic_coding = request.form['Basic coding']
+    except:
+        basic_coding = ""
+    try:
+        vid_nd_prd = request.form['Video and audio production']
+    except:
+        vid_nd_prd = ""
+    try:
+        soc_nd_dig =request.form['Social media and digital marketing']
+    except:
+        soc_nd_dig =  ""
+    try:
+        forin_lang =request.form['Foreign language']
+    except:
+        forin_lang = ""
 
     try:
         contribute1 = request.form['contribute1']
@@ -272,19 +303,19 @@ Residential Area:               {street}, {suburb}, {city}, {province}""")
 information. I am interested in learning {learning1} and {learning2}. I am interested in contributing to {contribute1}
 and {contribute2}. I currently code using {html}, {css}, {python} and {java} {sql}""")
 ##Education
-    pdf.heading('Education')
+    pdf.heading('Education')                   
     #pdf.lines(21,124,190,124)
     pdf.paragraph(f"""{start_HS_year} - {finish_HS_year}                                                                                     National Senior Certificate
                                                                                                               School: {HS_name}""")
     if college_name == '':
-        pdf.paragraph()
+        pdf.paragraph("")
     else:
         pdf.paragraph(f"""{start_college_year} - {finish_college_year}                                                                           {qualification}
                                                                                                               School: {college_name}""")
 ##Certificates
     
     if cert_name == '':
-        pdf.paragraph()
+        pdf.paragraph("")
     else:
         pdf.heading('Online Certificates')
         pdf.paragraph(f"""{cert_name}  
