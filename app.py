@@ -300,7 +300,7 @@ Residential Area:               {street}, {suburb}, {city}, {province}""")
     pdf.heading('About me')
     pdf.lines(21,92,190,92)
     pdf.paragraph(f"""I am an honest and hard-working individual who believes in quality work, continuous learning and sharing 
-information. I am interested in learning {learning1} and {learning2}. I am interested in contributing to {contribute1}
+information. I am intere sted in learning {learning1} and {learning2}. I am interested in contributing to {contribute1}
 and {contribute2}. I currently code using {html}, {css}, {python} and {java} {sql}""")
 ##Education
     pdf.heading('Education')                   
